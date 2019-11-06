@@ -1,0 +1,28 @@
+---
+title: "My favorite color scales for graphs in R"
+output: github_document
+---
+
+The [fishualize](https://github.com/nschiett/fishualize) R package has many beautiful color scales for graphs. But since there are so many options it can get a bit overwhelming. I chose here some scales for my future reference.
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(fishualize)
+library(purrr)
+```
+
+
+```{r, echo=FALSE}
+fishes <- c("Acanthurus_olivaceus", "Balistapus_undulatus", "Bodianus_rufus", "Callanthias_australis", "Centropyge_loricula", "Cephalopholis_argus", "Chlorurus_microrhinos", "Chromis_vanderbilti", "Cirrhilabrus_solorensis", "Cirrhilabrus_tonozukai", "Clepticus_parrae", "Coryphaena_hippurus", "Gramma_loreto", "Halichoeres_garnoti", "Holacanthus_ciliaris", "Hypsypops_rubicundus", "Oncorhynchus_nerka", "Parupeneus_insularis", "Pomacanthus_imperator", "Pseudocheilinus_tetrataenia", "Scarus_globiceps", "Scarus_quoyi", "Sparisoma_viride", "Stegastes_nigricans",
+            # "Stethojulis_bandanensis",
+            "Synchiropus_splendidus", "Taeniura_lymma", "Trimma_lantana", "Variola_louti", "Zanclus_cornutus")
+
+plot_scale <- function(fish_name) {
+  cat(as.character(fish_name))
+  fishualize(option = fish_name)
+}
+
+walk(fishes, plot_scale)
+```
