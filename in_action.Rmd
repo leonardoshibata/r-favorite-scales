@@ -1,0 +1,52 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup}
+library(tidyverse)
+library(datasus)
+library(fishualize)
+```
+
+
+**Número de óbitos residentes, por faixa etária e Capítulo da CID-10, Santo André, 2008-2017**
+
+```{r fig.height=8, fig.width=14}
+# download data
+obitos_raw <- sim_obt10_mun(
+  municipio = 354780,
+  linha = "Capítulo CID-10",
+  coluna = "Faixa Etária",
+  periodo = c(as.character(2008:2017))
+)
+
+obitos_tidy <-
+  obitos_raw %>%
+  pivot_longer(2:13, names_to = "faixa_etaria", values_to = "obitos") %>%
+  select(`Capítulo CID-10`, faixa_etaria, obitos) %>%
+  filter(`Capítulo CID-10` != "TOTAL",!(is.na(obitos))) %>%
+  mutate(
+    `Capítulo CID-10` = str_replace(`Capítulo CID-10`, "^[:upper:]+\\.[:blank:]*", ""),
+    `Faixa Etária` = factor(
+      faixa_etaria,
+      levels = unique(faixa_etaria),
+      ordered = TRUE
+    )
+  )
+
+fishes <- c("Acanthurus_olivaceus", "Balistapus_undulatus", "Bodianus_rufus", "Callanthias_australis", "Centropyge_loricula", "Cephalopholis_argus", "Chlorurus_microrhinos", "Chromis_vanderbilti", "Cirrhilabrus_solorensis", "Cirrhilabrus_tonozukai", "Clepticus_parrae", "Coryphaena_hippurus", "Gramma_loreto", "Halichoeres_garnoti", "Holacanthus_ciliaris", "Hypsypops_rubicundus", "Oncorhynchus_nerka", "Parupeneus_insularis", "Pomacanthus_imperator", "Pseudocheilinus_tetrataenia", "Scarus_globiceps", "Scarus_quoyi", "Sparisoma_viride", "Stegastes_nigricans",
+            # "Stethojulis_bandanensis",
+            "Synchiropus_splendidus", "Taeniura_lymma", "Trimma_lantana", "Variola_louti", "Zanclus_cornutus")
+
+ggplot(obitos_tidy) +
+  geom_col(aes(
+    x = faixa_etaria,
+    y = obitos,
+    fill = reorder(`Capítulo CID-10`, obitos)
+  )) +
+  labs(x = "Faixa Etária", y = "Óbitos") +
+  scale_fill_fish_d(option = "Hypsypops_rubicundus",
+                    direction = -1,
+                    name = "Capítulo da CID-10")
+```
