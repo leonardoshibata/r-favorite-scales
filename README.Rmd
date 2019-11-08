@@ -3,7 +3,7 @@ title: "My favorite color scales for graphs in R"
 output: github_document
 ---
 
-The [fishualize](https://github.com/nschiett/fishualize) R package has many beautiful color scales for graphs. But since there are so many options it can get a bit overwhelming. I chose here some scales for my future reference.
+The [fishualize](https://github.com/nschiett/fishualize) R package has many beautiful color scales for graphs. But since there are so many options it can get a bit overwhelming. I chose here some scales for my future reference. See them in action [here](https://github.com/leonardoshibata/r-favorite-scales/blob/master/in_action.md)
 
 
 ```{r setup, include=FALSE}
