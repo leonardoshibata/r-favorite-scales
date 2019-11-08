@@ -1,14 +1,17 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Color scales in action"
+output: github_document
 ---
 
-```{r setup}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
 library(tidyverse)
 library(datasus)
 library(fishualize)
 ```
 
+This is an example of my favorite color scales applied to the same graph:
 
 **Número de óbitos residentes, por faixa etária e Capítulo da CID-10, Santo André, 2008-2017**
 
@@ -28,25 +31,24 @@ obitos_tidy <-
   filter(`Capítulo CID-10` != "TOTAL",!(is.na(obitos))) %>%
   mutate(
     `Capítulo CID-10` = str_replace(`Capítulo CID-10`, "^[:upper:]+\\.[:blank:]*", ""),
-    `Faixa Etária` = factor(
+    faixa_etaria = factor(
       faixa_etaria,
       levels = unique(faixa_etaria),
       ordered = TRUE
     )
   )
 
-fishes <- c("Acanthurus_olivaceus", "Balistapus_undulatus", "Bodianus_rufus", "Callanthias_australis", "Centropyge_loricula", "Cephalopholis_argus", "Chlorurus_microrhinos", "Chromis_vanderbilti", "Cirrhilabrus_solorensis", "Cirrhilabrus_tonozukai", "Clepticus_parrae", "Coryphaena_hippurus", "Gramma_loreto", "Halichoeres_garnoti", "Holacanthus_ciliaris", "Hypsypops_rubicundus", "Oncorhynchus_nerka", "Parupeneus_insularis", "Pomacanthus_imperator", "Pseudocheilinus_tetrataenia", "Scarus_globiceps", "Scarus_quoyi", "Sparisoma_viride", "Stegastes_nigricans",
-            # "Stethojulis_bandanensis",
-            "Synchiropus_splendidus", "Taeniura_lymma", "Trimma_lantana", "Variola_louti", "Zanclus_cornutus")
-
-ggplot(obitos_tidy) +
+exemplo <- ggplot(obitos_tidy) +
   geom_col(aes(
     x = faixa_etaria,
     y = obitos,
     fill = reorder(`Capítulo CID-10`, obitos)
   )) +
-  labs(x = "Faixa Etária", y = "Óbitos") +
-  scale_fill_fish_d(option = "Hypsypops_rubicundus",
-                    direction = -1,
-                    name = "Capítulo da CID-10")
+  labs(x = "Faixa Etária", y = "Óbitos")
+
+fishes <- c("Acanthurus_olivaceus", "Balistapus_undulatus", "Bodianus_rufus", "Callanthias_australis", "Centropyge_loricula", "Cephalopholis_argus", "Chlorurus_microrhinos", "Chromis_vanderbilti", "Cirrhilabrus_solorensis", "Cirrhilabrus_tonozukai", "Clepticus_parrae", "Coryphaena_hippurus", "Gramma_loreto", "Halichoeres_garnoti", "Holacanthus_ciliaris", "Hypsypops_rubicundus", "Oncorhynchus_nerka", "Parupeneus_insularis", "Pomacanthus_imperator", "Pseudocheilinus_tetrataenia", "Scarus_globiceps", "Scarus_quoyi", "Sparisoma_viride", "Stegastes_nigricans", "Synchiropus_splendidus", "Taeniura_lymma", "Trimma_lantana", "Variola_louti", "Zanclus_cornutus")
+
+walk(fishes, ~ print(exemplo + scale_fill_fish_d(., direction = -1, name = "Capítulo da CID-10") + labs(title = .)))
 ```
+
+

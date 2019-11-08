@@ -1,0 +1,10 @@
+Color scales in action
+================
+
+This is an example of my favorite color scales applied to the same
+graph:
+
+**Número de óbitos residentes, por faixa etária e Capítulo da CID-10,
+Santo André, 2008-2017**
+
+![](in_action_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-2.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-3.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-4.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-5.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-6.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-7.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-8.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-9.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-10.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-11.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-12.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-13.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-14.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-15.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-16.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-17.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-18.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-19.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-20.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-21.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-22.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-23.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-24.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-25.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-26.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-27.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-28.png)<!-- -->![](in_action_files/figure-gfm/unnamed-chunk-1-29.png)<!-- -->
